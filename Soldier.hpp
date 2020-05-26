@@ -3,27 +3,34 @@
 namespace WarGame {
 
 	class Soldier {
-		int health_points;
+	private:
 		int damage_point;
+		int player_number;
+		int health_points;
 
 	public:
 		
-		Soldier(int health, int damage) 
-		: health_points(health), damage_point(damage){}
+		
+		Soldier(int health, int damage, uint p) 
+		: health_points(health), damage_point(damage), player_number(p){}
+
+		virtual ~Soldier() {};
 
 		int get_health_points() {
-			return health_points;
+			return this->health_points;
 		}
 		void set_health_points(int h_p) {
-			health_points = h_p;
+			this->health_points = h_p;
 		}
 		int get_damage_point() {
-			return damage_point;
+			return this->damage_point;
 		}
-		void set_damage_point(int d_p) {
-			damage_point = d_p;
+
+		int get_player_number() {
+			return this->player_number;
 		}
-		//virtual void shoot(Board& board, std::pair<int, int> location) {};
+		
+		virtual void Attack(std::vector<std::vector<Soldier*>> &board, std::pair<int, int> location) = 0;
 
 
 	};
