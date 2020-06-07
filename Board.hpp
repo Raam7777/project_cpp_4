@@ -10,7 +10,7 @@
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
-
+#pragma once
 
 
 namespace WarGame {
